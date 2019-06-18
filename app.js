@@ -21,8 +21,23 @@ app.use(
 app.set("views", "./src/views");
 app.set("view engine", "ejs");
 
+// const nav = [
+//   { link: "contents", title: "contents" },
+//   { link: "/authors", title: "Authors" }
+// ];
+
+const contentRouter = require("./src/routes/contentRoutes");
+
+app.use("/contents", contentRouter);
+
 app.get("/", (req, res) => {
-  res.render("index", { list: ["a", "b"], title: "Teacher Website" });
+  res.render("index", {
+    nav: [
+      { link: "contents", title: "contents" },
+      { link: "/authors", title: "Authors" }
+    ],
+    title: "Teacher Website"
+  });
 });
 
 app.listen(port, () => {
