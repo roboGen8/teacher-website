@@ -3,6 +3,7 @@ var chalk = require("chalk");
 var path = require("path");
 
 var app = express();
+const port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, "/public/")));
 app.use(
@@ -17,11 +18,13 @@ app.use(
   "/js",
   express.static(path.join(__dirname, "/node_modules/jquery/dist"))
 );
+app.set("views", "./src/views");
+app.set("view engine", "ejs");
 
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "views/index.html"));
+app.get("/", (req, res) => {
+  res.render("index", { list: ["a", "b"], title: "Teacher Website" });
 });
 
-app.listen(3000, function() {
-  console.log(`listening on port ${chalk.green("3000")}`);
+app.listen(port, () => {
+  console.log(`listening on port ${chalk.green(port)}`);
 });
