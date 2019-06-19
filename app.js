@@ -21,12 +21,12 @@ app.use(
 app.set("views", "./src/views");
 app.set("view engine", "ejs");
 
-// const nav = [
-//   { link: "contents", title: "contents" },
-//   { link: "/authors", title: "Authors" }
-// ];
+const nav = [
+  { link: "contents", title: "contents" },
+  { link: "/authors", title: "Authors" }
+];
 
-const contentRouter = require("./src/routes/contentRoutes");
+const contentRouter = require("./src/routes/contentRoutes")(nav);
 
 app.use("/contents", contentRouter);
 
