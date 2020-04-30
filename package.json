@@ -16,7 +16,7 @@
     "debug": "^4.1.1",
     "ejs": "^2.6.2",
     "express": "*",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jsonwebtoken": "*",
     "mongoose": "*",
     "nodemon": "^1.19.1",
